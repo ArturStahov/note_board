@@ -1,0 +1,12 @@
+.content-wrapper {
+  @media screen and (min-width: $tablet-bp-min) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+.content-padding {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}

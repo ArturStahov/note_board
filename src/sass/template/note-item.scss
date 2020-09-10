@@ -1,0 +1,87 @@
+.note-list {
+  @media screen and (max-width: $mobile-bp-max) {
+    justify-content: center;
+  }
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.content_block {
+  overflow: auto;
+  max-width: 200px;
+  @media screen and (max-width: $mobile-bp-max) {
+    max-width: 250px;
+  }
+  // &::-webkit-scrollbar {
+  //   /* chrome based */
+  //   width: 3px; /* ширина scrollbar'a */
+  //   background: $fourth-font-color; /* опционально */
+  // }
+}
+.note-item {
+  position: relative;
+  background-color: $note-color;
+  padding: 10px 10px 35px 10px;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  border-style: solid;
+  border-width: 2px;
+  border-color: $note-border-color;
+  border-radius: 5px;
+  box-shadow: inset 0px 2px 2px 0px rgba(0, 0, 0, 0.16);
+
+  @media screen and (min-width: $tablet-bp-min) {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  &_title {
+    text-align: center;
+    text-transform: uppercase;
+    @include font-settings(1rem, 1.2, 700, $note-title-color);
+    margin-bottom: 10px;
+    @media screen and (max-width: $mobile-bp-max) {
+      @include font-settings(1.2rem, 1.2, 700, $note-title-color);
+    }
+  }
+  &_description {
+    @include font-settings(0.8rem, 1.2, 400, $note-descr-color);
+    margin-bottom: 10px;
+    @media screen and (max-width: $mobile-bp-max) {
+      @include font-settings(1rem, 1.2, 400, $note-descr-color);
+    }
+  }
+
+  // &:hover,
+  // :focus .button-delete-note {
+  //   opacity: 1;
+  //   overflow: visible;
+  // }
+}
+
+.button-delete-note {
+  width: 25px;
+  height: 25px;
+  background-image: url(../images/delete.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  // opacity: 0;
+  // overflow: hidden;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin: 0 auto;
+  display: block;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  // transition-property: all;
+  // transition-duration: 0.4s;
+}

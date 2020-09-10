@@ -1,0 +1,26 @@
+.page-main {
+  // padding-top: 50px;
+  // padding-bottom: 100px;
+  background-image: url(../images/bg-pattern.png);
+  background-color: $second-background-color;
+
+  // @media (min-resolution: 192dpi) {
+  //   background-image: url(../images/header/mobile/bg-m@2x.png);
+  // }
+
+  // @media (min-width: $tablet-bp-min) {
+  //   background-image: url(../images/header/tablet/bg-t.png);
+  // }
+
+  // @media (min-width: $tablet-bp-min) and (min-resolution: 192dpi) {
+  //   background-image: url(../images/header/tablet/bg-t@2x.png);
+  // }
+
+  // @media (min-width: $desktop-bp-min) {
+  //   background-image: url(../images/header/desctop_1280/bg-d.png);
+  // }
+
+  // @media (min-width: $desktop-bp-min) and (min-resolution: 192dpi) {
+  //   background-image: url(../images/header/desctop_1280/bg-d@2x.png);
+  // }
+}

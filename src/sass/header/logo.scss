@@ -1,0 +1,19 @@
+.logo {
+  position: relative;
+  @include font-settings(3rem, 1.2, 800, $logo-text-color);
+  &_lastletter {
+    position: absolute;
+    top: -5px;
+    left: 124px;
+    font-family: $logo-deco-font;
+    @include font-settings(5rem, 1.2, 800, $logo-text-color);
+  }
+}
+
+.logo_secondline {
+  display: block;
+  @include font-settings(1.5rem, 1.2, 600, $fourth-font-color);
+  @media screen and (max-width: $mobile-bp-max) {
+    margin-bottom: 28px;
+  }
+}

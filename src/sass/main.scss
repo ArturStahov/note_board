@@ -1,0 +1,22 @@
+@import 'normalize';
+@import './helpers/variables';
+@import './helpers/mixins';
+@import 'fonts';
+
+@import 'base';
+
+//header
+
+@import './header/page-header';
+@import './header/logo';
+@import './header/page-nav';
+@import './header/social-button';
+
+//main
+@import './main/page-main';
+@import './main/content-wrapper';
+@import './main/note_form/note-form';
+//template note-items
+@import './template/note-item';
+//footer
+@import './footer/page-footer';

@@ -1,0 +1,6 @@
+.page-nav {
+  @media screen and (min-width: $tablet-bp-min) {
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,97 @@
+.note-form {
+  // @media screen and (min-width: $desktop-bp-min) {
+  //   margin-right: 20px;
+  // }
+  @media screen and (max-width: $mobile-bp-max) {
+    padding-left: 15px;
+    padding-right: 30px;
+    background-position-x: -28px;
+  }
+
+  padding-top: 70px;
+  padding-bottom: 100px;
+  padding-left: 45px;
+  padding-right: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 350px;
+  background-image: url(../images/notepad_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+
+  &_title {
+    text-align: center;
+    min-width: 170px;
+    @include font-settings(1.3rem, 1.2, 700, $fourth-font-color);
+    margin-bottom: 10px;
+  }
+
+  &_input-titile {
+    padding-left: 5px;
+    width: 100%;
+    height: 38px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    opacity: 0.75;
+    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.16);
+    outline: none;
+    margin-bottom: 15px;
+  }
+
+  &_input-message {
+    padding-left: 5px;
+    width: 100%;
+    height: 85px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    opacity: 0.75;
+    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.16);
+
+    margin-bottom: 15px;
+    resize: none;
+    outline: none;
+  }
+  &_button {
+    background-image: url(../images/btn_create_note.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 100%;
+    height: 44px;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.note-form_input-titile input:required:focus:valid:not(:placeholder-shown),
+.note-form_input-message textarea:required:focus:valid:not(:placeholder-shown) {
+  border-style: solid;
+  border-width: 2px;
+  border-color: $logo-text-color;
+  border-radius: 5px;
+}
+.note-form_input-titile input:required:focus:invalid:not(:placeholder-shown),
+.note-form_input-message
+  textarea:required:focus:invalid:not(:placeholder-shown) {
+  border-style: solid;
+  border-width: 2px;
+  border-color: red;
+  border-radius: 5px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  padding-left: 5px;
+  @include font-settings(0.7rem, 1.2, 700, $third-font-color);
+  text-transform: uppercase;
+}
+textarea::placeholder {
+  padding-top: 5px;
+}
