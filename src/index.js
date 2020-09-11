@@ -1,6 +1,7 @@
 import './sass/main.scss';
 import { CreateNote } from './js/createNote'
 import templateNoteItems from './template/template_note_item.hbs'
+import Sortable from 'sortablejs';
 
 
 const refs = {
@@ -11,11 +12,19 @@ const refs = {
     pageMain: document.querySelector(".content-wrapper")
 }
 
+
+const sort = () => {
+    const sortlist = Sortable.create(refs.noteList, { handle: ".note-item_sort-lable", animation: 300, easing: "cubic-bezier(1, 0, 0, 1)" });
+}
+sort();
+
 const loadNote = () => {
     if (localStorage.getItem("saveNote")) {
         const loadNote = localStorage.getItem("saveNote")
         refs.pageMain.classList.add("content-padding")
         refs.noteList.insertAdjacentHTML('beforeend', loadNote);
+
+
     }
 }
 
@@ -30,6 +39,9 @@ const saveNote = () => {
     localStorage.setItem("saveNote", savestring)
 }
 
+
+
+
 const handlerSubmitForm = (event) => {
     event.preventDefault();
     const noteObj = new CreateNote(refs.formInputTitle.value, refs.formInputMessage.value)
@@ -38,6 +50,8 @@ const handlerSubmitForm = (event) => {
     refs.noteList.insertAdjacentHTML('beforeend', templateNote);
     refs.form.reset();
     saveNote()
+
+
 }
 
 const handlerDeleteNote = (event) => {
@@ -49,6 +63,7 @@ const handlerDeleteNote = (event) => {
         return;
     }
     saveNote()
+
 }
 
 refs.noteList.addEventListener("click", handlerDeleteNote);
