@@ -87,9 +87,6 @@
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
     0 3px 1px -2px rgba(0, 0, 0, 0.2);
   transform: scaleY(0.5) scaleX(0.5) translateY(0px) translateX(0px);
-  -moz-transition: 0.3s;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -134,12 +131,12 @@
   background-color: $note-button-ico;
 }
 
-[data-tooltip='yellow'] {
+[data-tooltip='the right time'] {
   background: rgb(216, 218, 107);
 }
-[data-tooltip='grey'] {
+[data-tooltip='not important'] {
   background: rgb(177, 177, 166);
 }
-[data-tooltip='green'] {
+[data-tooltip='medium importance'] {
   background: rgb(107, 218, 153);
 }
