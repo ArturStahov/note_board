@@ -1,5 +1,5 @@
 ## **Note board v2.0**
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&layout=compact)](https://github.com/ArturStahov/note_board)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&layout=compact)
 ### application functionality:
 - creating a note using a form
 - visualization of user notes
