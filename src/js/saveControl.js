@@ -36,8 +36,10 @@ export class SaveControl {
     }
 
     saveNoteArr() {
-        this.jsonString = JSON.stringify(this.noteArr)
-        localStorage.setItem("saveNote", this.jsonString)
-        console.log(this.jsonString)
+        if (this.noteArr.length > 0) {
+            this.jsonString = JSON.stringify(this.noteArr)
+            localStorage.setItem("saveNote", this.jsonString)
+            console.log(this.jsonString)
+        }
     }
 }
