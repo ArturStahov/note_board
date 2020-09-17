@@ -1,29 +1,3 @@
 {{#each this}}
-<li class="note-item {{colorSetting}}" data-iditem="{{id}}">
-    <span class="note-item_sort-lable"></span>
-    <div class="content_block">
-        <h2 class="note-item_title">{{inputTitle}}</h2>
-        <p class="note-item_description">{{inputMessage}}</p>
-    </div>
-    <div class="fab">
-        <span class="fab-action-button fab-action-button__icon">
-
-        </span>
-        <ul class="fab-buttons">
-            <li class="fab-buttons__item icon-material fab-buttons__link" data-tooltip="medium importance">
-
-            </li>
-            <li class="fab-buttons__item icon-material fab-buttons__link" data-tooltip="not important">
-
-            </li>
-            <li class="fab-buttons__item icon-material fab-buttons__link" data-tooltip="the right time">
-
-            </li>
-            <li class="fab-buttons__item icon-material fab-buttons__link icon-material_li" data-tooltip="delete"
-                data-button="button-delete-item">
-
-            </li>
-        </ul>
-    </div>
-</li>
+{{>./template_note_item.hbs this}}
 {{/each}}
