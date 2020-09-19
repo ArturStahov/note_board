@@ -35,6 +35,17 @@ export class SaveControl {
         })
     }
 
+    saveNoteEdit(itemRefId, newTitle, newMessage) {
+        this.noteArr.forEach((elem, index) => {
+            if (elem.id === itemRefId) {
+                elem.inputTitle = newTitle
+                elem.inputMessage = newMessage
+                this.saveNoteArr();
+                return console.log(this.noteArr)
+            }
+        })
+    }
+
     saveNoteArr() {
         if (this.noteArr.length > 0) {
             this.jsonString = JSON.stringify(this.noteArr)

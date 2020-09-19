@@ -57,9 +57,26 @@
       @include font-settings(1rem, 1.2, 400, $note-descr-color);
     }
   }
+  &:hover .note-item_sort-lable,
+  :focus .note-item_sort-lable {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:hover .fab-action-button,
+  :focus .fab-action-button {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:hover .edit-notes,
+  :focus .edit-notes {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .note-item_sort-lable {
+  opacity: 0;
+  visibility: hidden;
   background-image: url(../images/drag.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -70,6 +87,25 @@
   width: 30px;
   height: 30px;
   background-color: $note-sort-label-color;
+  transition-property: opacity;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.edit-notes {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  bottom: 2px;
+  left: 0px;
+  border: none;
+  background-image: url(../images/note-edit.png);
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  transition-property: opacity;
+  transition-duration: 0.4s;
+  outline: none;
   cursor: pointer;
 }
 

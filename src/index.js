@@ -4,6 +4,20 @@ import templateNoteItems from './template/template_note_item.hbs';
 import templateNoteFromArray from './template/templateNoteFromArray.hbs'
 import Sortable from 'sortablejs';
 import { SaveControl } from './js/saveControl.js';
+import MicroModal from 'micromodal';  // es6 module
+
+MicroModal.init({
+    onShow: modal => console.info(`${modal.id} is shown`), // [1]
+    onClose: modal => console.info(`${modal.id} is hidden`), // [2]
+    openTrigger: 'my-modal', // [3]
+    closeTrigger: 'data-custom-close', // [4]
+    openClass: 'is-open', // [5]
+    disableScroll: true, // [6]
+    disableFocus: false, // [7]
+    awaitOpenAnimation: true, // [8]
+    awaitCloseAnimation: true, // [9]
+    debugMode: false // [10]
+});
 
 
 const colorSetting = {
@@ -19,6 +33,7 @@ const refs = {
     formInputMessage: document.querySelector('[data-input-message]'),
     noteList: document.querySelector('[data-note-list]'),
     pageMain: document.querySelector(".content-wrapper"),
+
 }
 
 const sort = () => {
@@ -53,6 +68,7 @@ const handlerSubmitForm = (event) => {
     refs.noteList.insertAdjacentHTML('beforeend', templateNote);
     refs.form.reset();
     save.saveNote(noteObj);
+
 }
 
 const handlerDeleteNote = (event) => {
@@ -101,6 +117,49 @@ const chendgeNoteColorHandler = (event) => {
 }
 
 
+const handlerButtonEditNote = (event) => {
+    if (event.target.nodeName !== "BUTTON") {
+        return
+    }
+    MicroModal.show('modal-1'); // [1]
+    const modalOverlovRef = document.querySelector('[data-closeFromOverlov-close]')
+    const buttonCloseRef = document.querySelector('[data-button-close]')
+    const itemRefId = event.target.parentNode.dataset.iditem;
+    const titleRef = event.target.parentNode.querySelector('.note-item_title')
+    const messageRef = event.target.parentNode.querySelector('.note-item_description')
+    const formEditNoteRef = document.querySelector('[data-form-edit-note]')
+    const formEditInputTitle = document.querySelector('[data-form-edit-input-title]')
+    const formEditInputMessage = document.querySelector('[data-form-edit-input-message]')
+
+    const handlerEditNote = (event) => {
+        event.preventDefault();
+        titleRef.textContent = formEditInputTitle.value;
+        messageRef.textContent = formEditInputMessage.value;
+        save.saveNoteEdit(itemRefId, formEditInputTitle.value, formEditInputMessage.value)
+        formEditNoteRef.reset();
+        formEditNoteRef.removeEventListener('submit', handlerEditNote)
+        MicroModal.close('modal-1'); // [2]
+    }
+
+    const hundlerCloseModal = (event) => {
+        if (event.target === event.currentTarget) {
+            formEditNoteRef.removeEventListener('submit', handlerEditNote)
+            buttonCloseRef.removeEventListener('click', hundlerCloseModal)
+            modalOverlovRef.removeEventListener('click', hundlerCloseModal)
+            formEditNoteRef.reset();
+            MicroModal.close('modal-1'); // [2]  
+        }
+    }
+
+    modalOverlovRef.addEventListener('click', hundlerCloseModal)
+    buttonCloseRef.addEventListener('click', hundlerCloseModal)
+    formEditNoteRef.addEventListener('submit', handlerEditNote)
+}
+
+
+
+
 refs.noteList.addEventListener("click", chendgeNoteColorHandler);
 refs.noteList.addEventListener("click", handlerDeleteNote);
+refs.noteList.addEventListener("click", handlerButtonEditNote);
 refs.form.addEventListener("submit", handlerSubmitForm);

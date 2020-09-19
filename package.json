@@ -51,6 +51,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
+    "micromodal": "^0.4.6",
     "sortablejs": "^1.10.2",
     "uniqid": "^5.2.0"
   }
