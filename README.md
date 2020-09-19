@@ -23,3 +23,4 @@
 
 - dragging and dropping items https://www.npmjs.com/package/sortablejs
 - generator of id https://www.npmjs.com/package/uniqid
+- modal dialogs https://www.npmjs.com/package/micromodal
